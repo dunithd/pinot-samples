@@ -4,7 +4,7 @@ This repository contains the samples used during the meetup.
 
 ## Use case
 
-![](/diagrams/demo.png "Solution architecture")
+![](/iot-meetup/diagrams/demo.png "Solution architecture")
 
 ## Prerequisites
 
