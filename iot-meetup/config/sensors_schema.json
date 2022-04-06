@@ -1,0 +1,20 @@
+{
+    "schemaName": "sensors",
+    "primaryKeyColumns": [
+        "sensor_id"
+    ],
+    "dimensionFieldSpecs": [
+        {
+            "dataType": "INT",
+            "name": "sensor_id"
+        },
+        {
+            "dataType": "STRING",
+            "name": "truck_name"
+        },
+        {
+            "dataType": "STRING",
+            "name": "driver_name"
+        }
+    ]
+}

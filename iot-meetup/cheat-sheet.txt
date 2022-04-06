@@ -1,0 +1,17 @@
+docker exec -it kafka /opt/kafka/bin/kafka-topics.sh \
+--create --bootstrap-server kafka:9092 --topic readings
+
+docker exec -it pinot-controller /opt/pinot/bin/pinot-admin.sh AddTable \
+-tableConfigFile /config/readings_table.json \
+-schemaFile /config/readings_schema.json -exec
+
+docker exec -it kafka /opt/kafka/bin/kafka-console-producer.sh \
+--bootstrap-server kafka:9092 --topic readings
+
+
+docker exec -it pinot-controller /opt/pinot/bin/pinot-admin.sh AddTable \
+-tableConfigFile /config/sensors_table.json \
+-schemaFile /config/sensors_schema.json -exec
+
+docker exec -it pinot-controller /opt/pinot/bin/pinot-admin.sh LaunchDataIngestionJob \
+-jobSpecFile /config/sensors_job_spec.yml

@@ -1,0 +1,44 @@
+{
+    "schemaName": "readings",
+    "dimensionFieldSpecs": [
+        {
+            "name": "event_id",
+            "dataType": "INT"
+        },
+        {
+            "name": "sensor_id",
+            "dataType": "INT"
+        },
+        {
+            "name": "longitude",
+            "dataType": "FLOAT"
+        },
+        {
+            "name": "latitude",
+            "dataType": "FLOAT"
+        },
+        {
+          "dataType": "BYTES",
+          "name": "location_st_point",
+          "transformFunction": "toSphericalGeography(stPoint(longitude,latitude))"
+        }
+    ],
+    "metricFieldSpecs": [
+        {
+            "name": "speed",
+            "dataType": "FLOAT"
+        },
+        {
+            "name": "fuel_efficiency",
+            "dataType": "FLOAT"
+        }
+    ],
+    "dateTimeFieldSpecs": [
+        {
+            "name": "ts",
+            "dataType": "LONG",
+            "format": "1:SECONDS:EPOCH",
+            "granularity": "1:SECONDS"
+        }
+    ]
+}
